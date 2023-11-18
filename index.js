@@ -40,6 +40,8 @@ for (var i=0; i<document.querySelectorAll("button.drum").length; i++){
                 break;
         }
 
+        buttonAnimation(buttonInnerHTML);
+
         
     });
 }
@@ -82,5 +84,14 @@ document.addEventListener("keydown", function(event){
             break;
     }
 
+    buttonAnimation(ke);
+
 });
 
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function (){
+        activeButton.classList.remove("pressed");
+    }, 100);
+}
